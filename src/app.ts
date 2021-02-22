@@ -1,12 +1,19 @@
+import { userRouter } from './routes/user/user';
+import './dbConnection'
 import express from 'express'
-import random from './module/util'
+import cors from 'cors'
+import { PORT } from './config'
+import bodyParser from 'body-parser'
+import authRoutes from './routes/auth/auth'
 
 const app = express()
-const PORT = 3333
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-    res.send(`Success request ${random()}`)
-})
+authRoutes(app)
+userRouter(app)
+
 
 
 app.listen(PORT, () => {
