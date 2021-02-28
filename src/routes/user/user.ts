@@ -18,6 +18,7 @@ export const userRouter = (app: ExpressApp) => {
                 nickName: user.nickName,
                 id: user._id,
                 roles: user.roles,
+                image: user.image,
             } as UserInfoResp
             return res.send(JSON.stringify(resp))
         }

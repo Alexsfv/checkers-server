@@ -1,0 +1,1 @@
+**NodeJS server for Checkers SPA**

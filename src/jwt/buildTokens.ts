@@ -3,8 +3,8 @@ import { SECRET_JWT, SECRET_REFRESH } from './../config';
 import crypto from 'crypto'
 import { v4 as uuidv4 } from 'uuid'
 
-const exp_access = 12 * 1000
-const exp_refresh = 600 * 1000
+const exp_access = 1200 * 1000
+const exp_refresh = 6000 * 1000
 
 export const buildTokens = (userId: string): Tokens => {
     const access_token = buildAccessToken(userId.toString())

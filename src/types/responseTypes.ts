@@ -1,3 +1,4 @@
+import { globalMessageModel } from './../models/globalMessage'
 import { Roles } from "./other"
 
 export type UniqueEmailResponse = {
@@ -20,4 +21,15 @@ export type UserInfoResp = {
     nickName: string
     id: string
     roles: Roles[]
+    image: string
 }
+
+
+/// WS
+
+// global message
+export type AllGlobalMessagesResp = {
+    type: 'added_message',
+    data: globalMessageModel[]
+}
+//

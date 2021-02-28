@@ -12,13 +12,14 @@ import { logoutUser } from '../../jwt/logout';
 export default function authRoutes (app: ExpressApp) {
 
     app.put('/register', async (req, res) => {
-        const { nickName, email, password } = req.body as RegisterData
+        const { nickName, email, password, image } = req.body as RegisterData
         const hashedPassword = await hashPassword(password)
         if (!hashedPassword) return res.status(500).send('Error hash password')
         const data = {
             email,
             nickName,
             password: hashedPassword,
+            image,
             roles: ['user']
         }
         const user = new User(data) as UserModel

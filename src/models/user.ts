@@ -8,12 +8,14 @@ export interface UserModel extends mongoose.Document {
     nickName: string
     roles: string[]
     tokenSessions: TokenSessionModel[]
+    image: string
 }
 
 const userSchema = new mongoose.Schema({
     email: String,
     password: String,
     nickName: String,
+    image: String,
     roles: [String],
     tokenSessions: [{
         type: mongoose.Types.ObjectId,
